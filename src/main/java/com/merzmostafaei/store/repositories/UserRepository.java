@@ -1,6 +1,6 @@
-package com.codewithmosh.store.repositories;
+package com.merzmostafaei.store.repositories;
 
-import com.codewithmosh.store.entities.User;
+import com.merzmostafaei.store.entities.User;
 import org.springframework.data.repository.CrudRepository;
 
 public interface UserRepository extends CrudRepository<User, Long> {
