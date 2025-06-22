@@ -12,6 +12,10 @@ public class StoreApplication {
 
     //--Creating your First-API->UserController
 
+    //Calling APIS with Postman
+
+    //Creating Dynamic Routes-->getUser in UserController.java (find user by fetching the ID)
+
 
 
 }
