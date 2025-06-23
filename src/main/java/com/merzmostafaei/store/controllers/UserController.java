@@ -4,6 +4,7 @@ import com.merzmostafaei.store.dtos.UserDto;
 import com.merzmostafaei.store.entities.User;
 import com.merzmostafaei.store.mappers.UserMapper;
 import com.merzmostafaei.store.repositories.UserRepository;
+import jakarta.websocket.server.ServerEndpoint;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
@@ -25,7 +26,13 @@ public class UserController {
     @GetMapping
     //DTO (DataTransferObject)when use UserDto must map it to -> User Entity
     //--Extracting Query Parameters @RequestParam(required = false //not give badrequest ,defaultValue = ""to not give null error,name ="sort" best practice if we change queryname
-    public Iterable<UserDto> getAllUsers(@RequestParam(required = false,defaultValue = "",name ="sort") String sortBye){
+    //--Extractiong Request Headers -> @RequestHeader (name = "x-auth-token")String autuToken
+    public Iterable<UserDto> getAllUsers(
+            @RequestHeader (name = "x-auth-token")String autuToken,
+            @RequestParam(required = false,defaultValue = "",name ="sort") String sortBye
+    ){
+        //--Extractiong Request Headers see
+        System.out.println(autuToken);
 
         //--Extracting Query Parameters
             //--valid value

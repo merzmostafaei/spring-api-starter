@@ -45,4 +45,6 @@ public class StoreApplication {
                             // make the method in repository for custom query
                             // we use this for not getting multiple query and use query custom and entityGraph
 
+    //--Extractiong Request Headers--> in UserController for giving Custom header For authentication
+        // send get request with post man for http://localhost:8080/users?sort=email with header of key x-auth-valu and value 1234
 }
