@@ -25,4 +25,24 @@ public class StoreApplication {
 
     //--Extracting Query Parameters like: http://localhost:8080/users?sort=name   -->on UserController
 
+    //--Building Product EndPoints
+                //Build 2 API to fetch Product data
+                    //1-fetch all products
+                        //--ProductController
+                        //--productDto
+                        //--ProductController make method for product Dto
+                        //ProductRepository
+                        //ProductMapper - add metod
+                        //ProductController-> method List for Dto-> use Repository -> Map to ProductMapper
+
+                                 //2-Fetch a Single Product By ID
+                                        // give the method Prameter in ProductController
+                                            //go to Repository and add filter for category
+                                            // to Controller validate it with create list
+                                            // convert return to list to stream and filter
+
+                        //3- custom query method for join product to category because as defult hibearnate work eager and we don't want fetch all data in product table
+                            // make the method in repository for custom query
+                            // we use this for not getting multiple query and use query custom and entityGraph
+
 }
