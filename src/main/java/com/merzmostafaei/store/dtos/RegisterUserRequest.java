@@ -1,5 +1,6 @@
 package com.merzmostafaei.store.dtos;
 
+import com.merzmostafaei.store.validation.Lowercase;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -16,6 +17,7 @@ public class RegisterUserRequest {
     //--Jakarta Validation
     @NotBlank(message = "Email Requierd")
     @Email(message = "Email must be valid")
+    @Lowercase(message = "Email must be lower case")
     private String email;
     //--Jakarta Validation
     @NotBlank(message = "Password is required")

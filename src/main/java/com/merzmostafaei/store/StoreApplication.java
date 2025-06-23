@@ -127,6 +127,15 @@ public class StoreApplication {
 
     //Global Error Handling --? add new class GlobalExceptionHandler --> and cut paste Error method to this Class
 
+    //Implementing Custom Validation
+        //--we make @Lowercase
+            //--add new package (validation)
+            //--make the Class Lowercase with type Anotation to make the @Lowercase
+            //-- make diffrent class for validation Logic --> LowercaseValidator
+            //--implements ConstraintValidator<Lowercase, String> in this class
+            //--go back to Lowercase.java and add anotation -->@Constraint  provide name of the validator class
+            //--go to Dto RegisterUserRequest and add Custom annotation @Lowercase
+
 
 
 
