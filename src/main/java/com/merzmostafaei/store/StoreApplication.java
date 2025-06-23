@@ -23,4 +23,6 @@ public class StoreApplication {
 
     //--Customizing Response Data -> in UserDto and UserMapper
 
+    //--Extracting Query Parameters like: http://localhost:8080/users?sort=name   -->on UserController
+
 }

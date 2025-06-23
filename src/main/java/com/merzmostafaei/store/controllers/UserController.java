@@ -5,12 +5,12 @@ import com.merzmostafaei.store.entities.User;
 import com.merzmostafaei.store.mappers.UserMapper;
 import com.merzmostafaei.store.repositories.UserRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Set;
 
 
 //--Creating your First-API
@@ -24,13 +24,22 @@ public class UserController {
 
     @GetMapping
     //DTO (DataTransferObject)when use UserDto must map it to -> User Entity
-    public Iterable<UserDto> getAllUsers(){
+    //--Extracting Query Parameters @RequestParam(required = false //not give badrequest ,defaultValue = ""to not give null error,name ="sort" best practice if we change queryname
+    public Iterable<UserDto> getAllUsers(@RequestParam(required = false,defaultValue = "",name ="sort") String sortBye){
+
+        //--Extracting Query Parameters
+            //--valid value
+                //--for ErrorStatus 500
+        if (!Set.of("name","email").contains(sortBye))
+            //set the defult value
+            sortBye = "name";
+
 //        return userRepository.findAll()
 //                .stream()
 //                .map(user -> new UserDto(user.getId(), user.getName(),user.getEmail()))
 //                .toList();
         //Mapping Objects Using Mapstruct
-        return userRepository.findAll()
+        return userRepository.findAll(Sort.by(sortBye))//--Extracting Query Parameters Sort,by
                 .stream()
                 .map(userMapper::toDto)
                 .toList();
