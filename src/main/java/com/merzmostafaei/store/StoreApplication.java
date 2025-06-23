@@ -19,5 +19,7 @@ public class StoreApplication {
     //Setting HTTP Status Codes ->use ResponseEntityClass ->in UserCondtrollClass
     //DTO (DataTransferObject)when use UserDto must map it to -> User Entity (use in UserController)
 
+    //Mapping Objects Using Mapstruct ->Create Package of Mapper and use UserMapper Class,and then change the UserController
+
 
 }

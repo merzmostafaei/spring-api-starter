@@ -2,6 +2,7 @@ package com.merzmostafaei.store.controllers;
 
 import com.merzmostafaei.store.dtos.UserDto;
 import com.merzmostafaei.store.entities.User;
+import com.merzmostafaei.store.mappers.UserMapper;
 import com.merzmostafaei.store.repositories.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -19,14 +20,21 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/users")
 public class UserController {
     private final UserRepository userRepository;
+    private final UserMapper userMapper;
 
     @GetMapping
     //DTO (DataTransferObject)when use UserDto must map it to -> User Entity
     public Iterable<UserDto> getAllUsers(){
+//        return userRepository.findAll()
+//                .stream()
+//                .map(user -> new UserDto(user.getId(), user.getName(),user.getEmail()))
+//                .toList();
+        //Mapping Objects Using Mapstruct
         return userRepository.findAll()
                 .stream()
-                .map(user -> new UserDto(user.getId(), user.getName(),user.getEmail()))
+                .map(userMapper::toDto)
                 .toList();
+
     }
     //Setting HTTP Status Codes ->use ResponseEntityClass
     //DTO (DataTransferObject)when use UserDto must map it to -> User Entity
@@ -41,8 +49,11 @@ public class UserController {
         //return new ResponseEntity<>(user,HttpStatus.OK); -> OR use Static Factory Method
         //DTO (DataTransferObject)when use UserDto must map it to -> User Entity
 
-        var userDto = new UserDto(user.getId(), user.getName(), user.getEmail());
-        return ResponseEntity.ok(userDto);
+        //Mapping Objects Using Mapstruct
+                //we don't need to create userDtro
+        //var userDto = new UserDto(user.getId(), user.getName(), user.getEmail());
+        //return ResponseEntity.ok(userDto);
+        return ResponseEntity.ok(userMapper.toDto(user));
     }
 
 
