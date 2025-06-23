@@ -8,4 +8,5 @@ import org.springframework.data.repository.CrudRepository;
 //with JpaRepo -> findAll method return a list
 //with Crudrepo -> findall method return Iterable
 public interface UserRepository extends JpaRepository<User, Long> {
+    boolean existsByEmail(String email);
 }

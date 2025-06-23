@@ -90,10 +90,17 @@ public class UserController {
     // set the status to 201 mean create in UserController ->ResponseEntity
     @PostMapping
     //--Jakarta Validationv @Valid
-    public ResponseEntity<UserDto> createUser(
+    public ResponseEntity<?> registerUser(
             @Valid @RequestBody RegisterUserRequest request,
             UriComponentsBuilder uriBuilder
     ){
+        //--Validation Business Rules
+        if (userRepository.existsByEmail(request.getEmail())){
+            return ResponseEntity.badRequest().body(
+                    Map.of("email","Email is already registered") // fpr error we have change ResponseEntity<UserDto> to -> ?
+            );
+        }
+
         var user = userMapper.toEntity(request);
         //System.out.println(user);
         //save user

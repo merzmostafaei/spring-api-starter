@@ -125,9 +125,9 @@ public class StoreApplication {
             // me must to make method to call MehodArgumentNotValidException because @Valid Call this object and we use it in Error Handler.
 
 
-    //Global Error Handling --? add new class GlobalExceptionHandler --> and cut paste Error method to this Class
+    //--Global Error Handling --? add new class GlobalExceptionHandler --> and cut paste Error method to this Class
 
-    //Implementing Custom Validation
+    //--Implementing Custom Validation
         //--we make @Lowercase
             //--add new package (validation)
             //--make the Class Lowercase with type Anotation to make the @Lowercase
@@ -136,6 +136,9 @@ public class StoreApplication {
             //--go back to Lowercase.java and add anotation -->@Constraint  provide name of the validator class
             //--go to Dto RegisterUserRequest and add Custom annotation @Lowercase
 
+    //--Validation Business Rules
+        // example we sure EmailUser is unique in database
+            //- userController
 
 
 
