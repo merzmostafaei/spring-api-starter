@@ -105,6 +105,22 @@ public class StoreApplication {
         //use ResponsEntity Object for HttpStatus for unauthorized
 
 
+    //Building A Crud API ->Create-Update-Delete Product
+        //in postman -> POST {
+                                //    "name": "Test Product 1",
+                                //    "price": 20,
+                                //    "description": "Test description 1",
+                                //    "categoryId": 1
+                                //}
+
+        //Create a new Product ->ProdctController
+            //create DTO
+            //201 response create
+        //Updating an Existing Product
+        //Deleting an Existing Product
+
+
+
 
 
 
