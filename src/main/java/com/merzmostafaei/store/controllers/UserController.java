@@ -1,5 +1,6 @@
 package com.merzmostafaei.store.controllers;
 
+import com.merzmostafaei.store.dtos.ChangePasswordRequest;
 import com.merzmostafaei.store.dtos.RegisterUserRequest;
 import com.merzmostafaei.store.dtos.UpdateUserRequest;
 import com.merzmostafaei.store.dtos.UserDto;
@@ -129,6 +130,27 @@ public class UserController {
         userRepository.delete(user);
         return ResponseEntity.noContent().build();
     }
+
+    //Action-Based Updates->ChangePassword
+    @PostMapping("/{id}")
+    public ResponseEntity<Void> changePassword(
+            @PathVariable Long id,
+            @RequestBody ChangePasswordRequest request
+    )
+    {
+        var user = userRepository.findById(id).orElse(null);
+        if (user == null) {
+            return ResponseEntity.notFound().build();
+        }
+        if(!user.getPassword().equals(request.getOldPassword())){
+            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+        }
+        user.setPassword(request.getNewPassword());
+        userRepository.save(user);
+
+        return ResponseEntity.noContent().build();
+    }
+
 
 }
 

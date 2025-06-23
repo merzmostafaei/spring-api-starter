@@ -94,6 +94,17 @@ public class StoreApplication {
         //we delete user with repository
         //return not content of ResponseEntity
 
+    //Action-Based Updates->ChangePassword
+        //use post Request like http://localhost:8080/users/1/change-password
+            //in body we should provide old and new password
+
+        //we make method in UserController
+        //mak Dto for old and new password
+        //we use it as parameter to get the request body
+        //input logic, like if user exist or not and if statement
+        //use ResponsEntity Object for HttpStatus for unauthorized
+
+
 
 
 
