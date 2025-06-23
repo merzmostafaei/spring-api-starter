@@ -28,7 +28,7 @@ public class UserController {
     //--Extracting Query Parameters @RequestParam(required = false //not give badrequest ,defaultValue = ""to not give null error,name ="sort" best practice if we change queryname
     //--Extractiong Request Headers -> @RequestHeader (name = "x-auth-token")String autuToken
     public Iterable<UserDto> getAllUsers(
-            @RequestHeader (name = "x-auth-token")String autuToken,
+            @RequestHeader (name = "x-auth-token",required = false)String autuToken,
             @RequestParam(required = false,defaultValue = "",name ="sort") String sortBye
     ){
         //--Extractiong Request Headers see
