@@ -1,12 +1,14 @@
 package com.merzmostafaei.store.controllers;
 
 import com.merzmostafaei.store.dtos.RegisterUserRequest;
+import com.merzmostafaei.store.dtos.UpdateUserRequest;
 import com.merzmostafaei.store.dtos.UserDto;
 import com.merzmostafaei.store.entities.User;
 import com.merzmostafaei.store.mappers.UserMapper;
 import com.merzmostafaei.store.repositories.UserRepository;
 import jakarta.websocket.server.ServerEndpoint;
 import lombok.AllArgsConstructor;
+import org.mapstruct.control.MappingControl;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -97,6 +99,24 @@ public class UserController {
         //201 status, build URL Location -> we set the new location of header users/6 ->id new user
         var uri = uriBuilder.path("/users/{id}").buildAndExpand(userDto.getId()).toUri();
         return ResponseEntity.created(uri).body(userDto);
+    }
+    //--UpdatingResources
+    @PutMapping("/{id}")
+    public ResponseEntity<UserDto> updateUser(
+            @PathVariable(name="id") Long id,
+            @RequestBody UpdateUserRequest request){
+            //we should validate this Resourse user exist if not retur 404 erro
+            var user = userRepository.findById(id).orElse(null);
+            if(user == null){
+                return ResponseEntity.notFound().build();
+            }
+
+            //add the method to update user with dto in userDto -> make method in UserMapper
+            userMapper.update(request,user);
+            //save user
+            userRepository.save(user);
+            //we mapped it to dto and return the response
+        return ResponseEntity.ok(userMapper.toDto(user));
     }
 
 }

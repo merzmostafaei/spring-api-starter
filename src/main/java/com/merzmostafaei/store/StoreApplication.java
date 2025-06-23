@@ -70,6 +70,24 @@ public class StoreApplication {
         //build URL Location -> we set the new location of header users/6 ->id new user
 
 
+    //--UpdatingResources
+        //in postman change method to Put-> Replace entier Resource or Patch -> for updating one or more Properties -> http://localhost:8080/users/1
+            // {
+                //  "name":"merz",
+                //  "email":"merz@merz.com"
+            // }
+        //make method for Put in UserController
+        //create Seperate Dto UpddateUserRequest
+        //use userRepository to find user
+        //Change method to ResponseEntity<UserDto> because if user not exict status code must be 404
+        //mapping data with usermapper and add method update
+        // back to controler call mapper and method provide request and user entity
+        //save user by userRepository
+        // mapuser to dto and put it in responseentity
+        //than with postman update one of the user with just name and email
+
+
+
 
 
 
