@@ -16,6 +16,8 @@ public class StoreApplication {
 
     //Creating Dynamic Routes-->getUser in UserController.java (find user by fetching the ID)
 
+    //Setting HTTP Status Codes ->use ResponseEntityClass ->in UserCondtrollClass
+    //DTO (DataTransferObject)when use UserDto must map it to -> User Entity (use in UserController)
 
 
 }
