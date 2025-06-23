@@ -47,4 +47,20 @@ public class StoreApplication {
 
     //--Extractiong Request Headers--> in UserController for giving Custom header For authentication
         // send get request with post man for http://localhost:8080/users?sort=email with header of key x-auth-valu and value 1234
+
+
+    //--Extracting Request Body - > actual data -> to our Backend use for Create or update Objects
+        // send Post method with this raw body to /users
+                //{
+                    //    "name" : "merz",
+                    //    "email": "merz@merz.com"
+                    //
+                    //} if not have the method you give error of 405
+        //add method in UserController
+
+
+
+
+
+
 }
