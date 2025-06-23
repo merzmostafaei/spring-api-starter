@@ -6,6 +6,7 @@ import com.merzmostafaei.store.mappers.ProductMapper;
 import com.merzmostafaei.store.mappers.UserMapper;
 import com.merzmostafaei.store.repositories.ProductRepository;
 import com.merzmostafaei.store.repositories.UserRepository;
+import jakarta.validation.Valid;
 import jakarta.websocket.server.ServerEndpoint;
 import lombok.AllArgsConstructor;
 import org.mapstruct.control.MappingControl;
@@ -85,8 +86,9 @@ public class UserController {
     //--Create Resources
     // set the status to 201 mean create in UserController ->ResponseEntity
     @PostMapping
+    //--Jakarta Validationv @Valid
     public ResponseEntity<UserDto> createUser(
-            @RequestBody RegisterUserRequest request,
+            @Valid @RequestBody RegisterUserRequest request,
             UriComponentsBuilder uriBuilder
     ){
         var user = userMapper.toEntity(request);

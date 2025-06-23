@@ -86,6 +86,12 @@
             <artifactId>mapstruct-processor</artifactId>
             <version>1.6.3</version>
         </dependency>
+        <!-- Jkarta validation -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
+            <version>3.5.3</version>
+        </dependency>
 
     </dependencies>
     <build>
