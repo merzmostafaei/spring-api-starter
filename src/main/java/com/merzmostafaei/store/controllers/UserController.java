@@ -1,5 +1,6 @@
 package com.merzmostafaei.store.controllers;
 
+import com.merzmostafaei.store.dtos.RegisterUserRequest;
 import com.merzmostafaei.store.dtos.UserDto;
 import com.merzmostafaei.store.entities.User;
 import com.merzmostafaei.store.mappers.UserMapper;
@@ -10,6 +11,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.util.UriComponentsBuilder;
 
 import java.util.Set;
 
@@ -74,10 +76,29 @@ public class UserController {
     }
 
     //--Extracting Request Body
+//    @PostMapping
+//    public UserDto createUser(@RequestBody UserDto data){
+//        return data;
+//    }
+    //--Create Resources
+    // set the status to 201 mean create in UserController ->ResponseEntity
     @PostMapping
-    public UserDto createUser(@RequestBody UserDto data){
-        return data;
+    public ResponseEntity<UserDto> createUser(
+            @RequestBody RegisterUserRequest request,
+            UriComponentsBuilder uriBuilder
+    ){
+        var user = userMapper.toEntity(request);
+        //System.out.println(user);
+        //save user
+        userRepository.save(user);
+        //map it to dto
+        var userDto = userMapper.toDto(user);
+        //201 status ,for Return ResponseEntity.created (URL location) -> as parameter UriComponentsBuilder uriBuilder
+        //201 status, build URL Location -> we set the new location of header users/6 ->id new user
+        var uri = uriBuilder.path("/users/{id}").buildAndExpand(userDto.getId()).toUri();
+        return ResponseEntity.created(uri).body(userDto);
     }
+
 }
 
 

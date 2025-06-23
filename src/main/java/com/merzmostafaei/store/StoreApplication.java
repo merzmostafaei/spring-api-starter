@@ -58,6 +58,18 @@ public class StoreApplication {
                     //} if not have the method you give error of 405
         //add method in UserController
 
+    //--Create Resources -> Create acctual user object with Json
+        // we make separate Dto as RegisterUserRequest
+        //provide new mapping between dto and user entity -> UserMapper interface
+        //back to UserController change Parameter for Method to RegisterUserRequest
+        // mapping this object in this method and print it on the terminal
+        //add toString method to user entity to see the result in console
+        // we save user in userRepository for this method
+        // database gonna add the id for this user, we add mapp it to dto and return it with this method
+        // set the status to 201 mean create in UserController ->ResponseEntity
+        //build URL Location -> we set the new location of header users/6 ->id new user
+
+
 
 
 
