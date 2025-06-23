@@ -36,7 +36,7 @@ public class StoreApplication {
                         //ProductController-> method List for Dto-> use Repository -> Map to ProductMapper
 
                                  //2-Fetch a Single Product By ID
-                                        // give the method Prameter in ProductController
+                                        // give the method Parameter in ProductController
                                             //go to Repository and add filter for category
                                             // to Controller validate it with create list
                                             // convert return to list to stream and filter
@@ -45,7 +45,7 @@ public class StoreApplication {
                             // make the method in repository for custom query
                             // we use this for not getting multiple query and use query custom and entityGraph
 
-    //--Extractiong Request Headers--> in UserController for giving Custom header For authentication
+    //--Extracting Request Headers--> in UserController for giving Custom header For authentication
         // send get request with post man for http://localhost:8080/users?sort=email with header of key x-auth-valu and value 1234
 
 
@@ -58,14 +58,14 @@ public class StoreApplication {
                     //} if not have the method you give error of 405
         //add method in UserController
 
-    //--Create Resources -> Create acctual user object with Json
+    //--Create Resources -> Create actual user object with Json
         // we make separate Dto as RegisterUserRequest
         //provide new mapping between dto and user entity -> UserMapper interface
         //back to UserController change Parameter for Method to RegisterUserRequest
         // mapping this object in this method and print it on the terminal
         //add toString method to user entity to see the result in console
         // we save user in userRepository for this method
-        // database gonna add the id for this user, we add mapp it to dto and return it with this method
+        // database gonna add the id for this user, we add map it to dto and return it with this method
         // set the status to 201 mean create in UserController ->ResponseEntity
         //build URL Location -> we set the new location of header users/6 ->id new user
 
@@ -77,14 +77,25 @@ public class StoreApplication {
                 //  "email":"merz@merz.com"
             // }
         //make method for Put in UserController
-        //create Seperate Dto UpddateUserRequest
+        //create Separate Dto UpddateUserRequest
         //use userRepository to find user
         //Change method to ResponseEntity<UserDto> because if user not exict status code must be 404
         //mapping data with usermapper and add method update
-        // back to controler call mapper and method provide request and user entity
+        // back to controller call mapper and method provide request and user entity
         //save user by userRepository
-        // mapuser to dto and put it in responseentity
+        // mapuser to dto and put it in responsibility
         //than with postman update one of the user with just name and email
+
+    //DeletingResources
+        //change the request method in postman to Delete -> we should send particular resource wih id like as http://localhost:8080/users/1
+            //we don't need to add a body in postman
+        //make method in UserController
+        //like as update, finduser with repository
+        //we delete user with repository
+        //return not content of ResponseEntity
+
+
+
 
 
 
