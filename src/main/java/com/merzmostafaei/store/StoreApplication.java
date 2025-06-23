@@ -120,8 +120,12 @@ public class StoreApplication {
         //Deleting an Existing Product
 
 
-    //--Jakarta Validation
+    //--Jakarta Validation --> in RegisterUserRequest and UserController
+    //--Havind Validation Errors
+            // me must to make method to call MehodArgumentNotValidException because @Valid Call this object and we use it in Error Handler.
 
+
+    //Global Error Handling --? add new class GlobalExceptionHandler --> and cut paste Error method to this Class
 
 
 
