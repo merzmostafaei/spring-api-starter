@@ -158,6 +158,12 @@ public class StoreApplication {
         //install JPA Buddy
         //add the Entites
 
+    //-- Creating A cart API
+        //--Controller add new javaClass CartController
+        //--Create CartDto --> make cartItemDtp
+        //--make cartReposotory -> save the cart object in this repo and map it to CartDto
+        //--Create Mapper interface CartMapper
+
 
 
 
