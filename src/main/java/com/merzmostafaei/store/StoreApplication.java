@@ -9,12 +9,18 @@ public class StoreApplication {
     public static void main(String[] args) {
         SpringApplication.run(StoreApplication.class, args);
     }
+//--------------------------------------------------------------------------------------------------
+//INTRODUCTION TO SPRING MVC
 
     //--Creating your First-API->UserController
 
     //--Calling APIS with Postman
 
     //--Creating Dynamic Routes-->getUser in UserController.java (find user by fetching the ID)
+
+
+//----------------------------------------------------------------------------------------------------------
+//BUILDING RESTFUL APIS
 
     //--Setting HTTP Status Codes ->use ResponseEntityClass ->in UserCondtrollClass
     //--DTO (DataTransferObject)when use UserDto must map it to -> User Entity (use in UserController)
@@ -118,7 +124,8 @@ public class StoreApplication {
             //201 response create
         //Updating an Existing Product
         //Deleting an Existing Product
-
+//------------------------------------------------------------------------------------------------------
+//  VALIDATION API REQUEST
 
     //--Jakarta Validation --> in RegisterUserRequest and UserController
     //--Havind Validation Errors
@@ -140,10 +147,17 @@ public class StoreApplication {
         // example we sure EmailUser is unique in database
             //- userController
 
+    //----------------------------------------------------------------------------------------------
+//ShopingCard
 
-    //Creatin DatabaseTables
+    //--Creatin DatabaseTables for Shoping card
 
         //create carts table in db_migration -> V2 and V3
+
+    //--Creating Entities
+        //install JPA Buddy
+        //add the Entites
+
 
 
 
