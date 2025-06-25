@@ -165,6 +165,17 @@ public class StoreApplication {
         //--Create Mapper interface CartMapper
 
 
+    //--ADDING A Product TO the Cart
+        // in CartController method addToCart
+        // create this Dto to get the body request addItemToCartRequest
+        //make ProductRepository to validate Product in this method
+        // change cart Item to casadeType to Merge , beacuse when we save the parent object (cart) children like cardItem not gonna save
+        //7:35
+
+
+
+
+
 
 
 
