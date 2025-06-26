@@ -188,6 +188,25 @@ public class StoreApplication {
 
 
 
+    //--Getting The Cart
+        //implimenting End Poit To getting the Cart
+        // we get these -> {
+                //    "id": "1e8fd537-d22f-4643-9f3e-14f16e45e6c5",
+                //    "items": [],
+                //    "totalPrice": 0
+                //}
+        // fix item in CartMapper
+        // we change cartitem -> to items because we don't like this name; we change it in cart.java
+        //working on calculating the price we use the method in cartItem similar in cart.java to calculate in the cart
+            // because is part of the business logic and we need to add it in the domain model, mean in cart.java
+            //update mappingCOde in mapper-> CartMapper
+
+    //Clean the unnecessary queries
+        //difine Query in CartRepository
+        // go back to controller and Replace the findById to new method that me make in CartRepo
+
+
+
 
 
 

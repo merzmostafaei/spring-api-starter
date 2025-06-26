@@ -55,7 +55,7 @@ public class CartController {
     {
 
         //makeSure CartId is Valid error 404
-        var cart = cartRepository.findById(cartId).orElse(null);
+        var cart = cartRepository.getCartWithItems(cartId).orElse(null); //Clean the unnecessary queries replace findby to getCartWithItems(cartId)
         if(cart == null){
             return ResponseEntity.notFound().build();
         }
@@ -66,7 +66,7 @@ public class CartController {
         }
         // if we don't have this product doesn't exist in the cart we must add it, if exist we must increment the quantity
 
-        var cartItem = cart.getCartItems().stream()
+        var cartItem = cart.getItems().stream()
                 .filter(item -> item.getProduct().getId().equals(product.getId()))
                 .findFirst()
                 .orElse(null);
@@ -80,7 +80,7 @@ public class CartController {
             //associate cart
             cartItem.setCart(cart);
             //add to collection the card Object
-            cart.getCartItems().add(cartItem);
+            cart.getItems().add(cartItem);
         }
         cartRepository.save(cart);
 
@@ -88,5 +88,17 @@ public class CartController {
         var cartItemDto = cartMapper.toDto(cartItem);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(cartItemDto);
+    }
+
+    //--Getting The Cart
+    //implimenting End Poit To getting the Cart
+    @GetMapping("/{cartId}")
+    public ResponseEntity<CartDto> getCart(@PathVariable UUID cartId){
+        var cart = cartRepository.getCartWithItems(cartId).orElse(null);////Clean the unnecessary queries replace findby to getCartWithItems(cartId)
+        if ( cart == null){
+            return ResponseEntity.notFound().build();
+        }
+
+        return ResponseEntity.ok(cartMapper.toDto(cart));
     }
 }
