@@ -7,6 +7,7 @@ import lombok.Setter;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
+import java.math.BigDecimal;
 import java.util.UUID;
 
 
@@ -36,6 +37,10 @@ public class CartItem {
     @Column(name = "quantity")
     private Integer quantity;
 
+    //ADDING A Product TO the Cart //mapping
+    public BigDecimal getTotalPrice(){
+        return product.getPrice().multiply(BigDecimal.valueOf(quantity));
+    }
 
 
 }

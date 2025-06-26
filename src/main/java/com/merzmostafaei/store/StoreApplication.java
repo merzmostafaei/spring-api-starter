@@ -170,8 +170,21 @@ public class StoreApplication {
         // create this Dto to get the body request addItemToCartRequest
         //make ProductRepository to validate Product in this method
         // change cart Item to casadeType to Merge , beacuse when we save the parent object (cart) children like cardItem not gonna save
-        //7:35
-
+        //Mapping
+            //first add the column that we want provide in body to DTO // {
+                    //    "product": {
+                    //        "id": 5,
+                    //        "name": "Test Product 1",
+                    //        "price": 20.00
+                    //    },
+                    //    "quantity": 5,
+                    //    "totalPrice": 100.00
+                    //}
+            //but we make seperate DTO for shoping cart for commpact version of productDTo --> we call it cartProduct DTO
+            //we map cartDto to cartitem
+            //in CartController use the mapper to change cartitem to DTO
+            // add totalprice metod to cartItem entity because is logic -->getTotalPrice()
+            // this method not match in Dto so we mut to add it in mapper
 
 
 

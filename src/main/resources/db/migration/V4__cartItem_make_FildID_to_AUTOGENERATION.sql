@@ -1,0 +1,2 @@
+ALTER TABLE `store_api`.`cart_items`
+CHANGE COLUMN `id` `id` BIGINT NOT NULL AUTO_INCREMENT ;

@@ -82,5 +82,11 @@ public class CartController {
             //add to collection the card Object
             cart.getCartItems().add(cartItem);
         }
+        cartRepository.save(cart);
+
+        //ADDING A Product TO the Cart //mapping
+        var cartItemDto = cartMapper.toDto(cartItem);
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(cartItemDto);
     }
 }
